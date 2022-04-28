@@ -1,4 +1,4 @@
-import { Specification } from "../../model/Specification";
+import { Specification } from "../../entities/Specification";
 import {
   ICreateSpecificationDTO,
   ISpecificationsRepository,
@@ -6,6 +6,7 @@ import {
 
 export class SpecificationsRepository implements ISpecificationsRepository {
   private specifications: Specification[];
+
   private static INSTANCE: SpecificationsRepository;
 
   private constructor() {
@@ -25,7 +26,9 @@ export class SpecificationsRepository implements ISpecificationsRepository {
 
     Object.assign(specification, {
       name,
+
       description,
+
       created_at: new Date(),
     });
 

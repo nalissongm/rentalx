@@ -13,8 +13,11 @@ export class UsersRepository implements IUsersRepository {
 
     Object.assign(user, {
       name,
+
       password,
+
       email,
+
       created_at: new Date(),
     });
 

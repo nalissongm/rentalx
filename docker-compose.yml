@@ -1,11 +1,11 @@
-version: '3.7'
+version: "3.7"
 
 services:
   database:
     image: postgres
     container_name: database_pg
     restart: always
-    ports: 
+    ports:
       - 5432:5432
     environment:
       - POSTGRES_USER=docker
@@ -17,12 +17,13 @@ services:
   app:
     build: .
     container_name: rentx
+    restart: always
     ports:
       - 3333:3333
     volumes:
       - .:/usr/app/rentx
     network_mode: host
 
-volumes: 
-  pgdata: 
+volumes:
+  pgdata:
     driver: local

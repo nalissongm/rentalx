@@ -1,9 +1,11 @@
-import { CategoriesReporitory } from "../../repositories/implementations/CategoriesRepository";
+// import { CategoriesReporitory } from "../../repositories/implementations/CategoriesRepository";
 import { ListCategoriesController } from "./ListCategoriesController";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
-const categoriesRepository = CategoriesReporitory.getInstance();
+const categoriesRepository = null;
+
 const listCategoriesUseCase = new ListCategoriesUseCase(categoriesRepository);
+
 export const listCategoriesController = new ListCategoriesController(
   listCategoriesUseCase
 );

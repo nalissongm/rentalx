@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import { UsersRepository } from "../modules/users/repositories/UsersRepository";
-import { createUserController } from "../modules/users/useCases/createUser";
+import { UsersRepository } from "../modules/accounts/repositories/UsersRepository";
+import { createUserController } from "../modules/accounts/useCases/createUser";
 
 export const usersRoutes = Router();
 

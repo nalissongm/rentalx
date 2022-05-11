@@ -1,23 +1,34 @@
-import { UsersRepository } from "../../repositories/UsersRepository";
+import { inject, injectable } from "tsyringe";
 
-interface IRequest {
-  name: string;
+import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 
-  password: string;
-
-  email: string;
-}
-
+@injectable()
 export class CreateUserUseCase {
-  constructor(private usersRepository: UsersRepository) {}
+  constructor(
+    @inject("UsersRepository")
+    private usersRepository: IUsersRepository
+  ) {}
 
-  execute({ name, password, email }: IRequest) {
-    const user = this.usersRepository.findByName(name);
+  async execute({
+    name,
+    password,
+    email,
+    username,
+    driver_license,
+  }: ICreateUserDTO): Promise<void> {
+    // const user = await this.usersRepository.;
 
-    if (user) {
-      throw new Error("User Already Exixts!");
-    }
+    // if (user) {
+    //   throw new Error("User Already Exixts!");
+    // }
 
-    this.usersRepository.create({ name, password, email });
+    await this.usersRepository.create({
+      name,
+      password,
+      email,
+      username,
+      driver_license,
+    });
   }
 }

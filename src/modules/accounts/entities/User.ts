@@ -4,10 +4,13 @@ import { v4 as uuidV4 } from "uuid";
 @Entity("users")
 export class User {
   @PrimaryColumn()
-  id?: string;
+  id: string;
 
   @Column()
   name: string;
+
+  @Column()
+  username: string;
 
   @Column()
   password: string;
@@ -20,9 +23,6 @@ export class User {
 
   @Column()
   isAdmin: boolean;
-
-  @Column()
-  avatar: string;
 
   @CreateDateColumn()
   created_at: Date;

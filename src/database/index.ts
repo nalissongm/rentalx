@@ -1,3 +1,3 @@
 import { createConnection } from "typeorm";
 
-createConnection();
+createConnection("127.0.0.1");

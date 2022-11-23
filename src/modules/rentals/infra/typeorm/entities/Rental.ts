@@ -2,15 +2,22 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
+import { Car } from "@modules/cars/infra/typeorm/entities/Car";
+
 @Entity({ name: "rentals" })
 export class Rental {
   @PrimaryColumn()
   id: string;
+  @OneToOne(() => Car)
+  @JoinColumn({ name: "car_id" })
+  car: Car;
   @Column()
   car_id: string;
   @Column()

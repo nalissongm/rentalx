@@ -33,7 +33,6 @@ export class CreateRentalUseCase {
       car_id
     );
 
-    console.log(carUnAvailable);
     if (carUnAvailable) {
       throw new AppError("Car is unavailable");
     }
